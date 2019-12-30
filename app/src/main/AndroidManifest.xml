@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="kr.co.aiotlab.ecohealingproject">
+    <!-- MQTT -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 안드로이드 버전9 포그라운드-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- 디바이스 번호 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        android:theme="@style/AppTheme">
+        <activity android:name="kr.co.aiotlab.ecohealingproject.IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.aiotlab.ecohealingproject.LoginActivity" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.Main_User_Interface.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|orientation|screenSize" />
+        <activity android:name="kr.co.aiotlab.ecohealingproject.CalendarActivity" />
+        <activity android:name="kr.co.aiotlab.ecohealingproject.Main_User_Interface.BottomSettingActivity" />
+        <activity android:name="kr.co.aiotlab.ecohealingproject.SigninActivity" />
+        <activity android:name="kr.co.aiotlab.ecohealingproject.SingupActivity" />
+        <activity android:name="kr.co.aiotlab.ecohealingproject.SensorControlActivity" />
+        <activity android:name="kr.co.aiotlab.ecohealingproject.EnterIPandPort" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.Activity_FireAlert"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_LED1"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_LED2"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_LED3"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_LED4"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Siren1"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Siren2"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power1"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power2"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power3"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power4"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power5"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power6"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power7"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name="kr.co.aiotlab.ecohealingproject.IP_Setting_Activity" />
+
+
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.SearchCity"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.ThresholdTemperature"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name="kr.co.aiotlab.ecohealingproject.ThresholdBrightness"
+            android:theme="@style/AppTheme.CustomTheme" />
+
+        <service android:name="kr.co.aiotlab.ecohealingproject.Service.AppService" />
+        <service android:name="kr.co.aiotlab.ecohealingproject.Service.AppService2" />
+        <service android:name="kr.co.aiotlab.ecohealingproject.Service.AppService_push" />
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <service
+            android:name="kr.co.aiotlab.ecohealingproject.FirebaseInstanceIDService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

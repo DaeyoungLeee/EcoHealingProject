@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "757127081589",
+    "firebase_url": "https://eco-healing-project.firebaseio.com",
+    "project_id": "eco-healing-project",
+    "storage_bucket": "eco-healing-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757127081589:android:0e27442a9b04b7b897523c",
+        "android_client_info": {
+          "package_name": "kr.co.aiotlab.ecohealingproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757127081589-hf0r2369099v9nh7dnjfdapvriu5kf6n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.co.aiotlab.ecohealingproject",
+            "certificate_hash": "75302d468c19f97529ed9e908966302f348ceae8"
+          }
+        },
+        {
+          "client_id": "757127081589-sdm6fb3v1b89sj4rpaploj6iicm2uhl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNAM3libBufchoHP4XYvr90O8wAYJQOXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757127081589-sdm6fb3v1b89sj4rpaploj6iicm2uhl3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

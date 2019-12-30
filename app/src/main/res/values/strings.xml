@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">EcoHealingProject</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string-array name="sensors">
+
+        <item>온도(minute)</item>
+        <item>온도(day)</item>
+        <item>습도(minute)</item>
+        <item>습도(day)</item>
+        <item>조도(minute)</item>
+        <item>조도(day)</item>
+        <item>전력(minute)</item>
+        <item>전력(day)</item>
+        <item>열량지수(minute)</item>
+        <item>열량지수(day)</item>
+
+
+    </string-array>
+
+</resources>
