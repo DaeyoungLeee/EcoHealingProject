@@ -39,8 +39,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import kr.co.aiotlab.ecohealingproject.R;
 
-import static kr.co.aiotlab.ecohealingproject.Main_User_Interface.BottomFourthFragment.spinner_month;
-import static kr.co.aiotlab.ecohealingproject.Main_User_Interface.BottomFourthFragment.spinner_year;
+import static kr.co.aiotlab.ecohealingproject.Main_User_Interface.Fragment_4.spinner_month;
+import static kr.co.aiotlab.ecohealingproject.Main_User_Interface.Fragment_4.spinner_year;
 
 public class LinechartSensor5 extends Fragment implements View.OnClickListener {
 

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="kr.co.aiotlab.ecohealingproject">
     <!-- MQTT -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -86,12 +88,6 @@
 
         <activity
             android:name="kr.co.aiotlab.ecohealingproject.SearchCity"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.ThresholdTemperature"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.ThresholdBrightness"
             android:theme="@style/AppTheme.CustomTheme" />
 
         <service android:name="kr.co.aiotlab.ecohealingproject.Service.AppService" />

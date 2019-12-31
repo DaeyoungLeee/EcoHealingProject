@@ -5,8 +5,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -22,34 +20,21 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
-import org.eclipse.paho.android.service.MqttAndroidClient;
-import org.eclipse.paho.client.mqttv3.IMqttActionListener;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import kr.co.aiotlab.ecohealingproject.Service.AppService;
-import kr.co.aiotlab.ecohealingproject.Service.AppService2;
-import kr.co.aiotlab.ecohealingproject.Service.AppService_push;
 import kr.co.aiotlab.ecohealingproject.CalendarActivity;
 import kr.co.aiotlab.ecohealingproject.IP_Setting_Activity;
 import kr.co.aiotlab.ecohealingproject.R;
 import kr.co.aiotlab.ecohealingproject.SensorControlActivity;
+import kr.co.aiotlab.ecohealingproject.Service.AppService;
+import kr.co.aiotlab.ecohealingproject.Service.AppService2;
+import kr.co.aiotlab.ecohealingproject.Service.AppService_push;
 
 import static android.widget.Toast.LENGTH_SHORT;
-import static kr.co.aiotlab.ecohealingproject.Main_User_Interface.BottomFirstFragment.getHumidityText;
-import static kr.co.aiotlab.ecohealingproject.Main_User_Interface.BottomFirstFragment.getTempText;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -61,8 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static int dust;
     private String fire_state = "OFF";
 
-    JSONObject jsonObject, jsonObject_fire = null;
-    String jsonMQTT, jsonMQTT_fire;
+
     private static final String TAG = "MainActivity";
     /**
      * 인터넷 연결시킬 주소 설정
@@ -80,16 +64,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.bottomBarItemOne:
-                    showFragment(BottomFirstFragment.newInstance());
+                    showFragment(Fragment_1.newInstance());
                     return true;
                 case R.id.bottomBarItemSecond:
-                    showFragment(BottomSecondFragment.newInstance());
+                    showFragment(Fragment_2.newInstance());
                     return true;
                 case R.id.bottomBarItemThird:
-                    showFragment(BottomThirdFragment.newInstance());
+                    showFragment(Fragment_3.newInstance());
                     return true;
                 case R.id.bottomBarItemFourth:
-                    showFragment(BottomFourthFragment.newInstance());
+                    showFragment(Fragment_4.newInstance());
                     return true;
                 case R.id.bottomBarItemFifth:
                     Intent intent_settings = new Intent(MainActivity.this, BottomSettingActivity.class);
@@ -130,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //첫 화면
         if (savedInstanceState == null) {
-            showFragment(BottomFirstFragment.newInstance());
+            showFragment(Fragment_1.newInstance());
         }
         // bottom 네이게이션 아이디 받아옴
         BottomNavigationView navigation = findViewById(R.id.navigation);
@@ -148,80 +132,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView nav_View = findViewById(R.id.nav_View);
         nav_View.setNavigationItemSelectedListener(this);
 
-        /** MQTT init **/
-        // mqtt 초기설정
-        new Thread(new Runnable() {
-            String clientId = MqttClient.generateClientId();
-            final MqttAndroidClient client =
-                    new MqttAndroidClient(getApplicationContext(), "tcp://222.113.57.108:1883",
-                            clientId);
-            @Override
-            public void run() {
-                try {
-                    IMqttToken token = client.connect();
-                    token.setActionCallback(new IMqttActionListener() {
-                        @Override
-                        public void onSuccess(IMqttToken asyncActionToken) {
-                            // We are connected
-                            Log.d(TAG, "onSuccess: ");
 
-                            String topic = "Sensor/Dust_DHT22";
-
-                            int qos = 1;
-                            try {
-                                IMqttToken subToken = client.subscribe(topic, qos);
-                                subToken.setActionCallback(new IMqttActionListener() {
-                                    @Override
-                                    public void onSuccess(IMqttToken asyncActionToken) {
-                                        // The message was published
-                                        Log.d(TAG, "onSuccess: ");
-                                        client.setCallback(new MqttCallback() {
-                                            @Override
-                                            public void connectionLost(Throwable cause) {
-
-                                            }
-
-                                            @Override
-                                            public void messageArrived(String topic, MqttMessage message) throws Exception {
-                                                //Json 파싱
-                                                jsonMQTT = new String(message.getPayload());
-
-                                                jsonParse();
-                                            }
-
-                                            @Override
-                                            public void deliveryComplete(IMqttDeliveryToken token) {
-
-                                            }
-                                        });
-                                    }
-
-                                    @Override
-                                    public void onFailure(IMqttToken asyncActionToken,
-                                                          Throwable exception) {
-                                        // The subscription could not be performed, maybe the user was not
-                                        // authorized to subscribe on the specified topic e.g. using wildcards
-                                        Log.d(TAG, "onFailure: ");
-                                    }
-                                });
-                            } catch (MqttException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-
-                        @Override
-                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                            // Something went wrong e.g. connection timeout or firewall problems
-                            Log.d(TAG, "onFailure: ");
-
-                        }
-                    });
-                } catch (MqttException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
 
     }
 
@@ -319,27 +230,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private void jsonParse() {
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    jsonObject = new JSONObject(jsonMQTT);
-                    temp = jsonObject.getString("temperature");
-                    int windchilltemp = jsonObject.getInt("windchill");
-                    humi = jsonObject.getString("humidity");
-                    dust = jsonObject.getInt("dust");
 
-                    getTempText.setText(temp);
-                    getHumidityText.setText(humi);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     /**
      * 뒤로가기 버튼이 눌렸을 경우 동작
