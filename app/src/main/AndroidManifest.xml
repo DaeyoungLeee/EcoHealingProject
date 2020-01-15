@@ -20,9 +20,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:theme="@style/AppTheme">
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="kr.co.aiotlab.ecohealingproject.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,47 +44,9 @@
             android:name="kr.co.aiotlab.ecohealingproject.Activity_FireAlert"
             android:launchMode="singleTop" />
 
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_LED1"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_LED2"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_LED3"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_LED4"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Siren1"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Siren2"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power1"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power2"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power3"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power4"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power5"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power6"
-            android:theme="@style/AppTheme.CustomTheme" />
-        <activity
-            android:name="kr.co.aiotlab.ecohealingproject.SwitchNaming.SwitchNameSetting_Power7"
-            android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name="kr.co.aiotlab.ecohealingproject.IP_Setting_Activity" />
 
+        <activity android:name=".MotionTestActivity"/>
 
         <activity
             android:name="kr.co.aiotlab.ecohealingproject.SearchCity"

@@ -17,8 +17,8 @@ class SocketProtocol extends AsyncTask<String, Void, Void> {
     @Override
     protected Void doInBackground(String... strings) {
 
-        IP_ADRESS = SensorControlActivity.txt_ip.getText().toString();
-        PORT = Integer.parseInt(SensorControlActivity.txt_port.getText().toString());
+        IP_ADRESS = SensorControlActivity.txt_ip;
+        PORT = Integer.parseInt(SensorControlActivity.txt_port);
 
         try {
             try {

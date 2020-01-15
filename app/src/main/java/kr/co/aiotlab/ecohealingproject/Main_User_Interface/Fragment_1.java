@@ -3,6 +3,7 @@ package kr.co.aiotlab.ecohealingproject.Main_User_Interface;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -54,6 +55,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import kr.co.aiotlab.ecohealingproject.MotionTestActivity;
 import kr.co.aiotlab.ecohealingproject.R;
 
 import static kr.co.aiotlab.ecohealingproject.Main_User_Interface.MainActivity.dust;
@@ -116,6 +119,14 @@ public class Fragment_1 extends Fragment{
         img_weather = view.findViewById(R.id.img_weather);
         txt_date = view.findViewById(R.id.txt_date);
         txt_weather = view.findViewById(R.id.txt_weather_information);
+
+        img_weather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MotionTestActivity.class);
+                startActivity(intent);
+            }
+        });
 
         /** GPS 연동을 위한 권한 체크 및 위치정보 찾기 */
         if (Build.VERSION.SDK_INT >= 23 &&

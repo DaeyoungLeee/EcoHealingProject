@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <TextView
+        android:fontFamily="@font/nanumsquarebold"
+        android:id="@+id/txt_lightControl"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:text="조명 제어"
+        android:textColor="@color/colorNormalTextColor"
+        android:textSize="24sp" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/txt_lightControl"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_lightControl"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center_vertical"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp"
+                app:contentPadding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lightblackicon" />
+
+                    <TextView
+                        android:id="@+id/txt_ledswitch1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="name"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/txt_frag1_switch_duration1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="duration"/>
+
+                    <Switch
+                        android:id="@+id/LEDswitch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center_vertical"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp"
+                app:contentPadding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lightblackicon" />
+
+                    <TextView
+                        android:id="@+id/txt_ledswitch2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="name"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/txt_frag1_switch_duration2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="duration" />
+
+                    <Switch
+                        android:id="@+id/LEDswitch2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center_vertical"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp"
+                app:contentPadding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lightblackicon" />
+
+                    <TextView
+                        android:id="@+id/txt_ledswitch3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="name"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/txt_frag1_switch_duration3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="duration"/>
+
+                    <Switch
+                        android:id="@+id/LEDswitch3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center_vertical"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp"
+                app:contentPadding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lightblackicon" />
+
+                    <TextView
+                        android:id="@+id/txt_ledswitch4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="name"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/txt_frag1_switch_duration4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="duration"/>
+
+                    <Switch
+                        android:id="@+id/LEDswitch4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
